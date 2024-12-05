@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LiveForOthers - Making Lives Better</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="initiative.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap">
+
+</head>
+<style>
+    /* Glow animation for the "Need Support" button */
+    @keyframes glowing {
+        0% {
+            box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
+        }
+        50% {
+            box-shadow: 0 0 20px #ffffff, 0 0 10px #ffffff;
+        }
+        100% {
+            box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
+        }
+    }
+
+    .cta-button.glowing {
+        animation: glowing 1.5s infinite alternate;
+        color: var(--navy-blue);
+        font-weight: 600;
+        text-decoration: none;
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-size: larger;
+        background-color: #ffffff;
+        border: none;
+    }
+    /* Glow animation for the "Need Support" button */
+    @keyframes glowing {
+        0% {
+            box-shadow: 0 0 5px #007b948e, 0 0 20px #007b9493;
+        }
+        50% {
+            box-shadow: 0 0 20px #007b948e, 0 0 20px#007b94a3;
+        }
+        100% {
+            box-shadow: 0 0 5px #007b94e2, 0 0 20px #007b949f;
+        }
+    }
+
+    .submit-btn.glowing {
+        animation: glowing 1.5s infinite alternate;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-size: larger;
+        background-color: #ffffff;
+        border: none;
+    }
+/* Ensure section titles are centered */
+.section-title {
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Ensure the section title is centered within its container */
+    padding: 10px 0; /* Optional: Adds space around the title */
+    font-size: 2rem; /* Adjust the font size if needed */
+    width: 100%; /* Make sure the title takes full width of the container */
+    display: block; /* Make sure the title behaves like a block element */
+}
+
+/* Adjust for mobile devices */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem; /* Optionally adjust font size for mobile */
+        padding: 5px 0; /* Reduce padding on smaller screens */
+    }
+}
+
+
+/* Ensuring Initiative Features are Centered */
+.initiative-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensures items are centered */
+    gap: 20px; /* Adds spacing between the features */
+}
+
+/* Centering Feature Content */
+.feature {
+    flex: 1;
+    max-width: 250px; /* Ensures features don't stretch too wide */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Make sure the Request Support section is centered */
+.help-form {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* For buttons inside .hero-buttons to center them on mobile */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Make sure buttons are centered */
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%; /* Ensures buttons are full width */
+        margin-bottom: 10px;
+        text-align: center; /* Keeps text centered inside buttons */
+    }
+}
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+/* Style for the typing container below the Tamil button */
+.typing-container {
+    position: absolute;
+    top: 700px; /* Adjust this to move the typing effect below the Tamil button */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+}
+#typing-effect {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #fff;
+  border-right: 2px solid #fff; /* Cursor effect */
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes erasing {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Remove the blue highlight and border when clicking on the button */
+.submit-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+</style>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="logo">
+        LiveForOthers
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" style="margin-bottom: 50px;">
+            <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
+            <p class="animate-text" style="margin-bottom: 70px;"><i>Live with Purpose, Give with Heart</i></p>
+            <div class="hero-buttons">
+                <button class="cta-button glowing" onclick="scrollToSection('#help');">Need Support</button>
+                <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> <!-- Updated button -->
+                <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
+                <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
+
+
+            </div>
+        </div>
+        <div class="background-slider"></div> <!-- Slider container -->
+        <div id="typing-container" class="typing-container">
+        <h1 class="animate-text">
+            <span id="typing-effect"></span>
+          </h1>
+          </div>
+    </section>
+
+    <!-- Initiative Section -->
+    <section id="initiative" class="initiative">
+        <div class="initiative-content">
+            <h2 class="section-title">My Monthly Initiative</h2>
+            <div class="initiative-card">
+                <div class="amount-badge">₹10,000</div>
+                <p class="initiative-text">
+                    LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
+                    <div class="feature">
+                        <i class="fas fa-gift"></i>
+                        <h3>No Repayment Required</h3>
+                        <p>This is a gift, not a loan. I believe in unconditional support.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <h3>Individual Impact</h3>
+                        <p>Believing individual efforts can help more people than a pooled group contribution.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Transparent Process</h3>
+                        <p>A simple and transparent process for selecting and providing support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <h2 class="section-title" style="color:  #007c95; ">How It Works</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <i class="fas fa-file-alt"></i>
+                <h3>Submit Your Story</h3>
+                <p>Share your situation and the reason you need support in the Google form below.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <i class="fas fa-file-upload"></i>
+                <h3>Provide Documentation</h3>
+                <p>Upload relevant documents or images to support your request</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <i class="fas fa-check-circle"></i>
+                <h3>Selection Process</h3>
+                <p>Each person's situation is reviewed with compassion</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Receive Support</h3>
+                <p>Selected individuals receive immediate support</p>
+            </div>
+        </div>
+    </section>
+<!-- Help Form Section -->
+<section id="help" class="help-form">
+    <br>
+    <h2 class="section-title">Need Support</h2>
+    <div class="animated-form" style="text-align: center;">
+        <p>All your struggles will disappear now.</p>
+        <br>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glowing">Fill the Google Form</button>
+    </div>
+</section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="color: #007c95;">Connect Me</h2>
+        <div class="contact-content">
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" class="social-link">
+                    <i class="fab fa-instagram" style="color: #002a32;"></i>
+                </a>
+                
+                <a href="mailto:k.rajesh90033@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"  style="color: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+"></i>
+                </a>
+            </div>
+            <div class="contact-message">
+               <p>She Taught Me to Live with Purpose and Give with Heart</p> 
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
+            <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
+        </div>
+    </footer>
+ <style>
+    /* Style the button linking to the Google Form */
+    @media (max-width: 768px) {
+    .process-steps{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .form-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+ </style>
+<script>
+// Function to scroll to the specific section and hide navbar after a delay
+function scrollToSection(targetId) {
+    const element = document.querySelector(targetId);
+    if (element) {
+        // Smooth scroll to the section
+        window.scrollTo({
+            top: element.offsetTop - 50,  // Adjust this offset to avoid hiding behind fixed navbar
+            behavior: 'smooth' // Smooth scroll effect
+        });
+    }
+}
+    </script>
+    
+
+ <script>
+    let words = ["Education", "Gifts", "Shelter", "Health", "Happiness", "Food"]; // List of words
+let currentWordIndex = 0; // Start from the first word
+let typingSpeed = 160; // Speed of typing
+let erasingSpeed = 90; // Speed of erasing
+let newWordDelay = 1400; // Time before switching to the next word
+
+function typeWriter() {
+    let currentWord = words[currentWordIndex];
+    let span = document.getElementById('typing-effect');
+    let i = 0;
+
+    // Start typing animation
+    span.innerHTML = ''; // Clear existing text
+    let typingInterval = setInterval(function() {
+        span.innerHTML += currentWord.charAt(i);
+        i++;
+        if (i === currentWord.length) {
+            clearInterval(typingInterval); // Stop typing
+            setTimeout(eraseWord, newWordDelay); // Start erasing after delay
+        }
+    }, typingSpeed);
+}
+
+function eraseWord() {
+    let span = document.getElementById('typing-effect');
+    let i = span.innerHTML.length;
+
+    // Start erasing animation
+    let erasingInterval = setInterval(function() {
+        span.innerHTML = span.innerHTML.substring(0, i - 1);
+        i--;
+        if (i === 0) {
+            clearInterval(erasingInterval); // Stop erasing
+            currentWordIndex = (currentWordIndex + 1) % words.length; // Move to the next word
+            setTimeout(typeWriter, typingSpeed); // Start typing next word
+        }
+    }, erasingSpeed);
+}
+
+// Initialize the typing effect
+typeWriter();
+
+ </script>
+<script>
+   let currentLanguage = 'english'; // Default language is English
+
+const translations = {
+    "All your struggles will disappear now.": "உங்களுடைய அனைத்து போராட்டங்களும் இப்போது மறைந்து போகும்",
+    "She Taught Me to Live with Purpose and Give with Heart": "அவள் எனக்கு நோக்கத்துடன் வாழவும், மனப்பூர்வமாக கொடுக்கவும் கற்றுத்தந்தாள்.",
+    "How it Works": "செயல்முறை" ,
+    "LiveForOthers": "LiveForOthers",
+    "Live with Purpose, Give with Heart": "Live with Purpose, Give with Heart",
+    "Need Support": "ஆதரவு வேண்டும்",
+    "About": "பற்றி",
+    "Home": "முகப்பு",
+    "My Initiative": "என் முயற்சி",
+    "My Monthly Initiative": "என் மாதாந்திர முயற்சி",
+    "Get Help": "உதவி பெறவும்",
+    "Contact": "தொடர்பு",
+    "₹10,000": "₹10,000",
+    "LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.": 
+        "LiveForOthers என் மாதாந்திர முயற்சியாகும், இதில் நான் உண்மையான கஷ்டங்களை சந்திக்கும் மக்களுக்கு ₹10,000 வழங்குகிறேன். இதோடு, பெற்றோர் இல்லாத குழந்தைகள் மற்றும் முதியவர்களுக்கு உணவும், உடையும் பரிசளிக்கின்றேன். இது கடன் அல்ல, ஒரு பரிசாகும்.நான், எதிர்பாராத மக்களின் வாழ்க்கைகளை கொஞ்சம் பிரகாசமாக மாற்றும் வகையில் பங்கு பெறுகிறேன்.",
+    "No Repayment Required": "பணமதிரை தேவையில்லை",
+    "This is a gift, not a loan. I believe in unconditional support.": "இது ஒரு பரிசு, கடன் அல்ல. நான் நிபந்தனைகள் இல்லாத ஆதரவை நம்புகிறேன்.",
+    "Individual Impact": "தனிப்பட்ட தாக்கம்",
+    "Believing individual efforts can help more people than a pooled group contribution.": "ஒரே குழுவின் நிதி தொகுப்பின் பதிலாக, தனி முயற்சிகள் அதிக மக்களுக்கு உதவ முடியும் என்று நம்புகிறேன்.",
+    "Transparent Process": "தெளிவான செயல்முறை",
+    "A simple and transparent process for selecting and providing support.": "எளிமையான மற்றும் தெளிவான தேர்வு மற்றும் ஆதரவு செயல்முறை.",
+    "How It Works": "எப்படி செயல்படுகிறது",
+    "Submit Your Story": "உங்கள் கதை சமர்ப்பிக்கவும்",
+    "Share your situation and the reason you need support in the Google form below.": "உங்கள் நிலைமை மற்றும் உதவி தேவையின் காரணத்தை கீழ்காணும் கூகிள் படிவத்தில் பகிரவும்.",
+    "Provide Documentation": "ஆவணங்களை வழங்கவும்",
+    "Upload relevant documents or images to support your request": "உங்கள் கோரிக்கையை ஆதரிக்கும் பொருட்டு சம்பந்தப்பட்ட ஆவணங்களை பதிவேற்றவும்",
+    "Selection Process": "தேர்வு செயல்முறை",
+    "Each person's situation is reviewed with compassion": "ஒவ்வொரு நபரின் நிலையும் அக்கரையுடன் மதிப்பாய்வு செய்யப்படுகிறது.",
+    "Receive Support": "ஆதரவு பெறுங்கள்",
+    "Selected individuals receive immediate support": "தேர்ந்தெடுக்கப்பட்ட நபர்கள் உடனடி ஆதரவு பெறுவார்கள்.",
+    "Request Support": "ஆதரவை கோருங்கள்",
+    "Submit Request": "கோரிக்கை சமர்ப்பி",
+    "Please share your situation and how this support would help you...": "தயவு செய்து உங்கள் நிலையை பகிரவும் மற்றும் இந்த ஆதரவு உங்களுக்கு எவ்வாறு உதவும் என்பதை கூறவும்...",
+    "Supporting Documents": "ஆதரிக்கும் ஆவணங்கள்",
+    "Please attach relevant documents (ID proof, medical records, etc.)": "சம்பந்தப்பட்ட ஆவணங்களை இணைக்கவும் (ஐடி சான்று, மருத்துவ பதிவு போன்றவை)",
+    "Submit Request": "கோரிக்கை சமர்ப்பி",
+    "Follow us on Instagram": "Instagramல் நம்மை பின்தொடரவும்",
+    "Connect Me": "என்னை தொடர்பு கொள்ளவும்",
+    "Reach out to us on Instagram for any questions or support.": "எந்தவொரு கேள்விகளுக்கும் அல்லது ஆதரவுக்கு Instagramல் எங்களை தொடர்பு கொள்ளவும்.",
+    "Together, we can make a difference.": "கூட்டு செயல்படுவது மூலம், நாங்கள் வித்தியாசம் படுத்த முடியும்.",
+    "© 2024 LiveForOthers. Spreading kindness and positivity.": "© 2024 LiveForOthers. நற்கூறுகள் மற்றும் நேர்மறை உணர்வுகளை பரப்பு.",
+    "#LiveForOthers #Support #Kindness #HelpingHands": "#LiveForOthers #ஆதரவு #நற்கூறுகள் #உதவி கரம்"
+};
+
+function toggleLanguage() {
+    if (currentLanguage === 'english') {
+        // Switch to Tamil
+        document.querySelectorAll('*').forEach((element) => {
+            if (element.children.length === 0 && element.innerText.trim()) {
+                const translatedText = translations[element.innerText.trim()];
+                if (translatedText) {
+                    element.innerText = translatedText;
+                }
+            }
+        });
+        // Change button text
+        document.querySelector('button[onclick="toggleLanguage()"]').innerText = "English";
+        currentLanguage = 'tamil';
+    } else {
+        // Switch to English
+        location.reload(); // Reload the page to reset the content to English
+    }
+}
+
+
+</script>
+<style>
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    /* Stack the buttons vertically for smaller screens */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center; /* Center align the buttons */
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+
+    /* Optionally, adjust button text size for mobile */
+    .hero-buttons a,
+    .hero-buttons button {
+        font-size: 14px; /* Reduce font size for mobile view */
+    }
+}
+
+</style>
+<script>
+    let currentIndex = 0;
+const images = [
+    'bg1.jpg',  // Image 1
+    'bg2.jpg',  // Image 2
+    'bg3.jpg',  // Image 3
+    'bg4.jpg',  // Image 4
+    'bg5.jpg',  // Image 5
+    'bg6.jpg'   // Image 6
+];
+
+const slider = document.querySelector('.background-slider');
+
+function changeBackgroundImage() {
+    slider.style.opacity = 0; // Fade out
+    setTimeout(() => {
+        slider.style.backgroundImage = `url(${images[currentIndex]})`; // Change the background image
+        slider.style.opacity = 1; // Fade in
+    }, 1300); // Delay to match the fade-out time (1.5s)
+
+    currentIndex = (currentIndex + 1) % images.length; // Cycle through the images
+}
+
+// Initialize first image
+slider.style.backgroundImage = `url(${images[currentIndex]})`;
+slider.style.opacity = 1; // Ensure first image is visible
+
+// Change the background image every 5 seconds
+setInterval(changeBackgroundImage, 3000);
+
+</script>
+  
+    <script src="main1.js"></script>
+    <script src="form.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+/* Root Variables */
+:root {
+    --navy-blue: #007b94;
+    --sky-blue: #001f2a;
+    --sky-light: #d1f4fc;
+    --white: #ffffff;
+    --gray-100:  #d1f9fc;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-800: #0c1d2c;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-800);
+    overflow-x: hidden;
+}
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(233, 253, 255, 0.98);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    text-decoration: none;
+}
+
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: 
+    linear-gradient(135deg,#005a6ca8 10%,  #001f2a  100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    overflow: hidden; /* Hide overflow when image is transitioning */
+    padding: 0; /* Remove any default padding to avoid height issues */
+    margin: 0; /* Ensure no extra margin */
+
+}
+.background-slider {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places background slider behind text */
+    background-size: cover;
+    background-position: center 10%; /* Moves the background image down by 10% */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-content {
+    max-width: 800px;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: larger;
+}
+
+.cta-button:first-child {
+    background: var(--white);
+    color: var(--navy-blue);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-size: larger;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.756);
+}
+/* Slideshow Fade-in Animation (handled by JS) */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Process Section */
+.process {
+    padding: 5rem 2rem;
+    background: rgba(233, 255, 252, 0.98);
+
+    border-radius: 30px;
+
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--navy-blue) 10%, var(--sky-blue) 140%);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: 600;
+}
+
+.step i {
+    font-size: 2rem;
+    color: var(--sky-blue);
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    margin-bottom: 0.5rem;
+    color: var(--navy-blue);
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 2rem;
+    background: var(--white);
+    
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem; /* Set a fixed size */
+    height: 3rem; /* Set same height as width to create a circle */
+    background: var(--gray-100);
+    border-radius: 50%; /* Circular shape */
+    text-decoration: none;
+    color: var(--gray-800);
+    transition: all 0.3s ease;
+    cursor: none;
+}
+
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link i {
+    font-size: 1.5rem;
+    color: var(--sky-blue);
+}
+
+.contact-message {
+    color: var(--gray-800);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    border-radius: 30px;
+
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    border-top-left-radius: 30px; /* Round bottom-left corner */
+    border-top-right-radius: 30px; /* Round bottom-right corner */
+
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-tagline {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Form Section Styles */
+.help-form {
+    background: linear-gradient(135deg, var(--sky-blue) 0%, var(--navy-blue) 100%);
+    color: var(--navy-blue);
+    padding: 4rem 2rem;
+    border-radius: 30px;
+}
+
+.help-form .section-title {
+    color: var(--white);
+    margin-bottom: 2.5rem;
+}
+
+.animated-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--navy-blue);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--sky-light);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    color: var(--navy-blue);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--navy-blue);
+    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+    outline: none;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    border-left: 4px solid var(--sky-blue);
+}
+
+.notification.error {
+    border-left: 4px solid var(--navy-blue);
+}
+
+.notification i {
+    font-size: 1.5rem;
+}
+
+.notification.success i {
+    color: var(--sky-blue);
+}
+
+.notification.error i {
+    color: var(--navy-blue);
+}
+/* Update the form button styles */
+.submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    box-shadow: none;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+    outline: none;
+    box-shadow: none;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    outline: none;
+    box-shadow: none;
+}
+/* Remove the blue highlight and border when clicking on the button */
+.submit-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Enhanced file upload styling */
+.file-upload {
+    border: 2px dashed var(--sky-blue);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--gray-100);
+}
+
+.file-upload:hover {
+    border-color: var(--navy-blue);
+    background: var(--sky-light);
+}
+
+.file-upload label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.file-upload i {
+    font-size: 2.5rem;
+    color: var(--sky-blue);
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-info {
+    font-size: 0.9rem;
+    color: var(--gray-800);
+    margin-top: 0.5rem;
+}
