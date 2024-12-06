@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>LiveForOthers - Making Lives Better</title>
+    <title>LiveForOthers</title>
+    <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="animations.css">
@@ -161,14 +162,36 @@
     outline: none;
     box-shadow: none;
 }
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+
+
 </style>
 <body>
 <!-- Navigation -->
 <nav class="navbar">
-    <div class="logo">
-        LiveForOthers
+    <div class="logo-container">
+        <!-- Logo Image -->
+        <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+        <!-- Logo Text -->
+        <div class="logo">LiveForOthers</div>
     </div>
 </nav>
+
 
 
     <!-- Hero Section -->
