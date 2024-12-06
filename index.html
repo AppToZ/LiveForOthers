@@ -37,28 +37,7 @@
         background-color: #ffffff;
         border: none;
     }
-    /* Glow animation for the "Need Support" button */
-    @keyframes glowing {
-        0% {
-            box-shadow: 0 0 5px #007b948e, 0 0 20px #007b9493;
-        }
-        50% {
-            box-shadow: 0 0 20px #007b948e, 0 0 20px#007b94a3;
-        }
-        100% {
-            box-shadow: 0 0 5px #007b94e2, 0 0 20px #007b949f;
-        }
-    }
 
-    .submit-btn.glowing {
-        animation: glowing 1.5s infinite alternate;
-        font-weight: 600;
-        text-decoration: none;
-        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-        font-size: larger;
-        background-color: #ffffff;
-        border: none;
-    }
 /* Ensure section titles are centered */
 .section-title {
     text-align: center; /* Center the text */
@@ -179,7 +158,6 @@
 }
 
 
-
 </style>
 <body>
 <!-- Navigation -->
@@ -281,7 +259,7 @@
     <div class="animated-form" style="text-align: center;">
         <p>All your struggles will disappear now.</p>
         <br>
-        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glowing">Fill the Google Form</button>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
     </div>
 </section>
 
