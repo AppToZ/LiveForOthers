@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>LiveForOthers</title>
     <link rel="icon" href="logo.png">
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="initiative.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <style>
-    /* Glow animation for the "Need Support" button */
     @keyframes glowing {
         0% {
             box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
@@ -26,7 +22,6 @@
             box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
         }
     }
-
     .cta-button.glowing {
         animation: glowing 1.5s infinite alternate;
         color: var(--navy-blue);
@@ -37,72 +32,56 @@
         background-color: #ffffff;
         border: none;
     }
-
-/* Ensure section titles are centered */
 .section-title {
-    text-align: center; /* Center the text */
-    margin: 0 auto; /* Ensure the section title is centered within its container */
-    padding: 10px 0; /* Optional: Adds space around the title */
-    font-size: 2rem; /* Adjust the font size if needed */
-    width: 100%; /* Make sure the title takes full width of the container */
-    display: block; /* Make sure the title behaves like a block element */
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0; 
+    font-size: 2rem; 
+    width: 100%; 
+    display: block; 
 }
-
-/* Adjust for mobile devices */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1.8rem; /* Optionally adjust font size for mobile */
-        padding: 5px 0; /* Reduce padding on smaller screens */
+        font-size: 1.8rem; 
+        padding: 5px 0; 
     }
 }
-
-
-/* Ensuring Initiative Features are Centered */
 .initiative-features {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Ensures items are centered */
-    gap: 20px; /* Adds spacing between the features */
+    justify-content: center;
+    gap: 20px; 
 }
-
-/* Centering Feature Content */
 .feature {
     flex: 1;
-    max-width: 250px; /* Ensures features don't stretch too wide */
+    max-width: 250px; 
     text-align: center;
     padding: 20px;
 }
-
-/* Make sure the Request Support section is centered */
 .help-form {
     text-align: center;
     padding: 40px 20px;
 }
-
-/* For buttons inside .hero-buttons to center them on mobile */
 @media (max-width: 768px) {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-        justify-content: center; /* Make sure buttons are centered */
+        justify-content: center; 
     }
-
     .hero-buttons a,
     .hero-buttons button {
-        width: 100%; /* Ensures buttons are full width */
+        width: 100%;
         margin-bottom: 10px;
-        text-align: center; /* Keeps text centered inside buttons */
+        text-align: center; 
     }
 }
 .hero {
     position: relative;
     text-align: center;
 }
-
-/* Style for the typing container below the Tamil button */
 .typing-container {
     position: absolute;
-    top: 650px; /* Adjust this to move the typing effect below the Tamil button */
+    top: 650px; 
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -112,12 +91,11 @@
   font-weight: 600;
   font-size: 2rem;
   color: #fff;
-  border-right: 2px solid #fff; /* Cursor effect */
+  border-right: 2px solid #fff; 
   padding-right: 5px;
   white-space: nowrap;
   overflow: hidden;
 }
-
 @keyframes typing {
   0% {
     width: 0;
@@ -126,7 +104,6 @@
     width: 100%;
   }
 }
-
 @keyframes erasing {
   0% {
     width: 100%;
@@ -135,8 +112,6 @@
     width: 0;
   }
 }
-
-/* Remove the blue highlight and border when clicking on the button */
 .submit-btn:focus {
     outline: none;
     box-shadow: none;
@@ -146,155 +121,30 @@
     align-items: center;
     padding: 10px;
 }
-
 .logo-container {
     display: flex;
     align-items: center;
 }
-
 .logo-container img {
     height: 40px;
     margin-right: 10px;
 }
-
-
-</style>
-<body>
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="logo-container">
-        <!-- Logo Image -->
-        <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-        <!-- Logo Text -->
-        <div class="logo"><b>LiveForOthers</b></div>
-    </div>
-</nav>
-
-
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" style="margin-bottom: 50px;">
-            <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
-            <p class="animate-text" style="margin-bottom: 70px;"><i>Live with Purpose, Give with Heart</i></p>
-            <div class="hero-buttons">
-                <button class="cta-button glowing" onclick="scrollToSection('#help');">Need Support</button>
-                <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> <!-- Updated button -->
-                <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
-                <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
-
-
-            </div>
-        </div>
-        <div class="background-slider"></div> <!-- Slider container -->
-        <div id="typing-container" class="typing-container">
-        <h1 class="animate-text">
-            <span id="typing-effect"></span>
-          </h1>
-          </div>
-    </section>
-
-    <!-- Initiative Section -->
-    <section id="initiative" class="initiative">
-        <div class="initiative-content">
-            <h2 class="section-title">My Monthly Initiative</h2>
-            <div class="initiative-card">
-                <div class="amount-badge">₹10,000</div>
-                <p class="initiative-text">
-                    LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
-                    <div class="feature">
-                        <i class="fas fa-gift"></i>
-                        <h3>No Repayment Required</h3>
-                        <p>This is a gift, not a loan. I believe in unconditional support.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-heart"></i>
-                        <h3>Individual Impact</h3>
-                        <p>Believing individual efforts can help more people than a pooled group contribution.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-hands-helping"></i>
-                        <h3>Transparent Process</h3>
-                        <p>A simple and transparent process for selecting and providing support.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <h2 class="section-title" style="color:  #007c95; ">How It Works</h2>
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <i class="fas fa-file-alt"></i>
-                <h3>Submit Your Story</h3>
-                <p>Share your situation and the reason you need support in the Google form below.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <i class="fas fa-file-upload"></i>
-                <h3>Provide Documentation</h3>
-                <p>Upload relevant documents or images to support your request</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <i class="fas fa-check-circle"></i>
-                <h3>Selection Process</h3>
-                <p>Each person's situation is reviewed with compassion</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <i class="fas fa-hand-holding-heart"></i>
-                <h3>Receive Support</h3>
-                <p>Selected individuals receive immediate support</p>
-            </div>
-        </div>
-    </section>
-<!-- Help Form Section -->
-<section id="help" class="help-form">
-    <br>
-    <h2 class="section-title">Need Support</h2>
-    <div class="animated-form" style="text-align: center;">
-        <p>All your struggles will disappear now.</p>
-        <br>
-        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
-    </div>
-</section>
-
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="section-title" style="color: #007c95;">Connect Me</h2>
-        <div class="contact-content">
-            <div class="social-links">
-                <a href="https://www.instagram.com/rajesh_k_rishi/" target="_blank" class="social-link">
-                    <i class="fab fa-instagram" style="color: #002a32;"></i>
-                </a>
-                
-                <a href="mailto:k.rajesh90033@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"  style="color: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
-"></i>
-                </a>
-            </div>
-            <div class="contact-message">
-               <p>She Taught Me to Live with Purpose and Give with Heart</p> 
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
-            <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
-        </div>
-    </footer>
- <style>
-    /* Style the button linking to the Google Form */
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .hero-buttons a,
+    .hero-buttons button {
+        font-size: 14px; 
+    }
+}
+@media (max-width: 768px) {
     .process-steps{
         grid-template-columns: 1fr;
     }
@@ -304,70 +154,301 @@
         grid-template-columns: 1fr;
     }
 }
-
- </style>
-<script>
-// Function to scroll to the specific section and hide navbar after a delay
-function scrollToSection(targetId) {
-    const element = document.querySelector(targetId);
-    if (element) {
-        // Smooth scroll to the section
-        window.scrollTo({
-            top: element.offsetTop - 50,  // Adjust this offset to avoid hiding behind fixed navbar
-            behavior: 'smooth' // Smooth scroll effect
-        });
+@keyframes slideIn {
+    from { 
+        transform: translateY(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
     }
 }
-    </script>
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 5px 15px rgba(3, 169, 244, 0.4);
+    }
+    50% { 
+        transform: scale(1.05); 
+        box-shadow: 0 5px 25px rgba(3, 169, 244, 0.6);
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 5px 15px rgba(3, 169, 244, 0.4);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.animate-text {
+    animation: slideIn 1s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.9s ease-out 0.3s both;
+}
+
+.step {
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: both;
+}
+.step:nth-child(1) { animation-delay: 0.2s; }
+.step:nth-child(2) { animation-delay: 0.4s; }
+.step:nth-child(3) { animation-delay: 0.6s; }
+.step:nth-child(4) { animation-delay: 0.8s; }
+.initiative-card {
+    animation: fadeIn 1.2s ease-out;
+    background: linear-gradient(
+        135deg, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.2) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.feature {
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: both;
+}
+.feature:nth-child(1) { animation-delay: 0.3s; }
+.feature:nth-child(2) { animation-delay: 0.6s; }
+.feature:nth-child(3) { animation-delay: 0.9s; }
+.initiative {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
+}
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 3rem;
+    position: relative;
     
-
- <script>
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--sky-light);
+    margin: 1rem auto;
+}
+.initiative-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.initiative-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.amount-badge {
+    position: absolute;
+    top: -3px;
+    right: -8px;
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 0px 15px rgba(187, 244, 255, 0.436);
+}
+.initiative-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--white);
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+.initiative-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+@media (max-width: 768px) {
+    .initiative-features {
+        grid-template-columns: 1fr;
+    }
+}
+.feature {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+.feature i {
+    font-size: 2.5rem;
+    color: var(--sky-light);
+    margin-bottom: 1rem;
+}
+.feature h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+.feature p {
+    color: var(--white);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+</style>
+<body>
+     <canvas id="bg"></canvas>
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+        <div class="logo"><b>LiveForOthers</b></div></div>
+</nav>
+    <section id="home" class="hero">
+        <div class="hero-content" style="margin-bottom: 50px;">
+            <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
+            <p class="animate-text" style="margin-bottom: 70px;"><i>Live with Purpose, Give with Heart</i></p>
+            <div class="hero-buttons">
+                <button class="cta-button glowing" onclick="scrollToSection('#help');">Need Support</button>
+                <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> 
+                <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
+                <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
+            </div></div>
+        <div class="background-slider"></div> 
+        <div id="typing-container" class="typing-container">
+        <h1 class="animate-text">
+            <span id="typing-effect"></span>
+          </h1></div>
+    </section>
+    <section id="initiative" class="initiative"><div class="initiative-content">
+            <h2 class="section-title">My Monthly Initiative</h2>
+            <div class="initiative-card"><div class="amount-badge">₹10,000</div>
+                <p class="initiative-text">
+                    LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
+                    <div class="feature">
+                        <i class="fas fa-gift"></i>
+                        <h3>No Repayment Required</h3>
+                        <p>This is a gift, not a loan. I believe in unconditional support.</p>
+                    </div><div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <h3>Individual Impact</h3>
+                        <p>Believing individual efforts can help more people than a pooled group contribution.</p>
+                    </div><div class="feature">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Transparent Process</h3>
+                        <p>A simple and transparent process for selecting and providing support.</p>
+                    </div></div> </div></div>
+    </section>
+    <section id="process" class="process">
+        <h2 class="section-title" style="color:  #007c95; ">How It Works</h2>
+        <div class="process-steps"><div class="step">
+                <div class="step-number">1</div>
+                <i class="fas fa-file-alt"></i>
+                <h3>Say your problem</h3>
+                <p>Share your situation and the reason you need support in the form below.</p>
+            </div><div class="step">
+                <div class="step-number">2</div>
+                <i class="fas fa-file-upload"></i>
+                <h3>Provide Documentation</h3>
+                <p>Upload relevant documents or images to support your request</p>
+            </div><div class="step">
+                <div class="step-number">3</div>
+                <i class="fas fa-check-circle"></i>
+                <h3>Selection Process</h3>
+                <p>Each person's situation is reviewed with compassion</p>
+            </div><div class="step">
+                <div class="step-number">4</div>
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Receive Support</h3>
+                <p>Selected individuals receive immediate support</p>
+            </div></div>
+    </section>
+<section id="help" class="help-form"><br>
+    <h2 class="section-title">Need Support</h2>
+    <div class="animated-form" style="text-align: center;">
+        <p>All your struggles will disappear now.</p><br>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
+    </div>
+</section>
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="color: #007c95;">Connect Me</h2>
+        <div class="contact-content">
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" class="social-link">
+                    <i class="fab fa-instagram" style="color: #002a32;"></i></a>      
+                <a href="mailto:k.rajesh90033@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"  style="color: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);"></i>
+                </a></div>
+            <div class="contact-message">
+               <p>She Taught Me to Live with Purpose and Give with Heart</p> 
+            </div></div>
+    </section><footer>
+        <div class="footer-content">
+            <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
+            <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
+        </div> </footer>
+<script>
     let words = ["Education", "Philanthropy", "Shelter", "Rehabilitation", "Wellbeing", "Sustainability"]; // List of words
-let currentWordIndex = 0; // Start from the first word
-let typingSpeed = 180; // Speed of typing
-let erasingSpeed = 40; // Speed of erasing
-let newWordDelay = 1400; // Time before switching to the next word
-
+let currentWordIndex = 0;
+let typingSpeed = 180;
+let erasingSpeed = 40; 
+let newWordDelay = 1400;
 function typeWriter() {
     let currentWord = words[currentWordIndex];
     let span = document.getElementById('typing-effect');
     let i = 0;
-
-    // Start typing animation
-    span.innerHTML = ''; // Clear existing text
+    span.innerHTML = ''; 
     let typingInterval = setInterval(function() {
         span.innerHTML += currentWord.charAt(i);
         i++;
         if (i === currentWord.length) {
-            clearInterval(typingInterval); // Stop typing
-            setTimeout(eraseWord, newWordDelay); // Start erasing after delay
+            clearInterval(typingInterval); 
+            setTimeout(eraseWord, newWordDelay); 
         }
     }, typingSpeed);
-}
-
-function eraseWord() {
+}function eraseWord() {
     let span = document.getElementById('typing-effect');
     let i = span.innerHTML.length;
-
-    // Start erasing animation
     let erasingInterval = setInterval(function() {
         span.innerHTML = span.innerHTML.substring(0, i - 1);
         i--;
         if (i === 0) {
-            clearInterval(erasingInterval); // Stop erasing
-            currentWordIndex = (currentWordIndex + 1) % words.length; // Move to the next word
-            setTimeout(typeWriter, typingSpeed); // Start typing next word
-        }
-    }, erasingSpeed);
-}
-
-// Initialize the typing effect
-typeWriter();
-
- </script>
-<script>
-   let currentLanguage = 'english'; // Default language is English
-
+            clearInterval(erasingInterval);
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            setTimeout(typeWriter, typingSpeed); 
+        }}, erasingSpeed);
+}typeWriter();
+function scrollToSection(targetId) {
+    const element = document.querySelector(targetId);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 50,  
+            behavior: 'smooth' 
+        });}}let currentLanguage = 'english';
 const translations = {
     "All your struggles will disappear now.": "உங்களுடைய அனைத்து போராட்டங்களும் இப்போது மறைந்து போகும்",
     "She Taught Me to Live with Purpose and Give with Heart": "அவள் எனக்கு நோக்கத்துடன் வாழவும், மனப்பூர்வமாக கொடுக்கவும் கற்றுத்தந்தாள்.",
@@ -411,88 +492,36 @@ const translations = {
     "Together, we can make a difference.": "கூட்டு செயல்படுவது மூலம், நாங்கள் வித்தியாசம் படுத்த முடியும்.",
     "© 2024 LiveForOthers. Spreading kindness and positivity.": "© 2024 LiveForOthers. நற்கூறுகள் மற்றும் நேர்மறை உணர்வுகளை பரப்பு.",
     "#LiveForOthers #Support #Kindness #HelpingHands": "#LiveForOthers #ஆதரவு #நற்கூறுகள் #உதவி கரம்"
-};
-
-function toggleLanguage() {
+};function toggleLanguage() {
     if (currentLanguage === 'english') {
-        // Switch to Tamil
         document.querySelectorAll('*').forEach((element) => {
             if (element.children.length === 0 && element.innerText.trim()) {
                 const translatedText = translations[element.innerText.trim()];
                 if (translatedText) {
                     element.innerText = translatedText;
-                }
-            }
-        });
-        // Change button text
-        document.querySelector('button[onclick="toggleLanguage()"]').innerText = "English";
+                } }});document.querySelector('button[onclick="toggleLanguage()"]').innerText = "English";
         currentLanguage = 'tamil';
     } else {
-        // Switch to English
-        location.reload(); // Reload the page to reset the content to English
-    }
-}
-
-
-</script>
-<style>
-
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-    /* Stack the buttons vertically for smaller screens */
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center; /* Center align the buttons */
-    }
-
-    .hero-buttons a,
-    .hero-buttons button {
-        width: 100%; /* Make buttons full width */
-        margin-bottom: 10px; /* Space between buttons */
-    }
-
-    /* Optionally, adjust button text size for mobile */
-    .hero-buttons a,
-    .hero-buttons button {
-        font-size: 14px; /* Reduce font size for mobile view */
-    }
-}
-
-</style>
-<script>
-    let currentIndex = 0;
+        location.reload(); }
+}let currentIndex = 0;
 const images = [
-    'bg1.jpg',  // Image 1
-    'bg2.jpg',  // Image 2
-    'bg3.jpg',  // Image 3
-    'bg4.jpg',  // Image 4
-    'bg5.jpg',  // Image 5
-    'bg6.jpg'   // Image 6
-];
-
-const slider = document.querySelector('.background-slider');
-
+    'bg1.jpg',  
+    'bg2.jpg',  
+    'bg3.jpg', 
+    'bg4.jpg',  
+    'bg5.jpg',  
+    'bg6.jpg'  
+];const slider = document.querySelector('.background-slider');
 function changeBackgroundImage() {
-    slider.style.opacity = 0; // Fade out
+    slider.style.opacity = 0; 
     setTimeout(() => {
-        slider.style.backgroundImage = `url(${images[currentIndex]})`; // Change the background image
-        slider.style.opacity = 1; // Fade in
-    }, 1300); // Delay to match the fade-out time (1.5s)
-
-    currentIndex = (currentIndex + 1) % images.length; // Cycle through the images
-}
-
-// Initialize first image
-slider.style.backgroundImage = `url(${images[currentIndex]})`;
-slider.style.opacity = 1; // Ensure first image is visible
-
-// Change the background image every 5 seconds
+        slider.style.backgroundImage = `url(${images[currentIndex]})`; 
+        slider.style.opacity = 1; 
+    }, 1300);
+    currentIndex = (currentIndex + 1) % images.length; 
+}slider.style.backgroundImage = `url(${images[currentIndex]})`;
+slider.style.opacity = 1; 
 setInterval(changeBackgroundImage, 3000);
-
 </script>
-  
-    <script src="main1.js"></script>
-    <script src="form.js"></script>
-    <script src="animations.js"></script>
 </body>
 </html>
