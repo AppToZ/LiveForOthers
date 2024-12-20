@@ -78,19 +78,7 @@
     position: relative;
     text-align: center;
 }
-.hero::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>');
-        animation: rotate 30s linear infinite;
-    }
 
-    @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
 .typing-container {
     position: absolute;
     top: 650px; 
@@ -349,14 +337,15 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
+
 body {
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
     color: var(--gray-800);
     overflow-x: hidden;
 }
+
 .navbar {
     position: fixed;
     top: 0;
@@ -475,6 +464,19 @@ body {
     }
 }
 
+.process {
+    padding: 5rem 2rem;
+    background: rgba(233, 255, 252, 0.98);
+
+    border-radius: 30px;
+
+}
+.process-steps {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .step {
     text-align: center;
     padding: 2rem;
@@ -512,6 +514,7 @@ body {
     background: var(--white);
     
 }
+
 .contact-content {
     max-width: 800px;
     margin: 0 auto;
@@ -552,6 +555,7 @@ body {
     border-radius: 30px;
 
 }
+
 footer {
     background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
     color: var(--white);
@@ -573,6 +577,7 @@ footer {
     font-size: 0.9rem;
     opacity: 0.7;
 }
+
 
 .help-form {
     background: linear-gradient(135deg, var(--sky-blue) 0%, var(--navy-blue) 100%);
@@ -647,19 +652,6 @@ footer {
 .submit-btn:focus {
     outline: none;
     box-shadow: none;
-}
-.process {
-    padding: 5rem 2rem;
-    background: rgba(233, 255, 252, 0.98);
-
-    border-radius: 30px;
-
-}
-.process-steps {
-    display: grid;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 </style>
