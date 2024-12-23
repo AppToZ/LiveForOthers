@@ -714,22 +714,17 @@ footer {
   animation-duration: 7s;
   animation-delay: -4s;
 }
-
-/* Randomize the position and size */
 .snowflake {
-  left: calc(100% * var(--random-x)); /* Random horizontal position */
-  animation-duration: calc(6s + var(--random-duration)); /* Random falling speed */
-  animation-delay: calc(var(--random-delay)); /* Random delay */
+  left: calc(100% * var(--random-x));
+  animation-duration: calc(6s + var(--random-duration)); 
+  animation-delay: calc(var(--random-delay)); 
 }
-
-
 
 .snowflake-container {
     position: relative;
     text-align: center;
     margin-bottom: 10px;  
 }
-
 .snow {
     width: 190px;
     height: 190px;
@@ -739,7 +734,6 @@ footer {
     transform: translateX(-50%);
     z-index: 10;
 }
-
 .snow1 {
     width: 105px;
     height: 105px;
@@ -856,14 +850,49 @@ footer {
 .scrolling-text {
     animation: scrollText 10s linear infinite; 
 }
+.right-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-image-container img {
+    height: 40px;
+    margin-left: 10px;  
+}
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        display: none;  
+    }
+    .landscape-warning {
+        display: block; 
+        text-align: center;
+        font-size: 1.5rem;
+        color: red;
+        padding: 20px;
+    }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        display: block;
+    }
+}
+
+
 </style>
 <body>
-     <canvas id="bg"></canvas>
-<nav class="navbar">
-    <div class="logo-container">
-        <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-        <div class="logo"><b>LiveForOthers</b></div></div>
-</nav>
+    <div class="landscape-warning" style="display: none;">
+        Please rotate your device to portrait mode to view this website.
+    </div>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+            <div class="logo"><b>LiveForOthers</b></div>
+        </div>
+        <div class="right-image-container">
+            <img src="tree.png" alt="Right Image" style="height: 40px;">
+        </div>
+    </nav>
+    
     <section id="home" class="hero">
         <div class="scrolling-text">
             <i>Merry Christmas and a Happy New Year!</i>
