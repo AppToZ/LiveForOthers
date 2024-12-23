@@ -719,7 +719,6 @@ footer {
   animation-duration: calc(6s + var(--random-duration)); 
   animation-delay: calc(var(--random-delay)); 
 }
-
 .snowflake-container {
     position: relative;
     text-align: center;
@@ -743,7 +742,6 @@ footer {
     transform: translateX(-50%);
     z-index: 10;
 }
-
 .snow2 {
     width: 135px;
     height: 125px;
@@ -753,7 +751,6 @@ footer {
     transform: translateX(-50%);
     z-index: 10;
 }
-
 .snow3 {
     width: 105px;
     height: 105px;
@@ -781,7 +778,6 @@ footer {
     transform: translateX(-50%);
     z-index: 10;
 }
-
 .snow6 {
     width: 235px;
     position: absolute;
@@ -798,8 +794,6 @@ footer {
     transform: translateX(-50%);
     z-index: 10;
 }
-
-
 .scrolling-text {
     white-space: nowrap;
     overflow: hidden;
@@ -836,7 +830,6 @@ footer {
     padding: 10px 0;    
     font-family: Arial, sans-serif; 
     text-shadow: 0 0 5px #e0ffe8;
-
 }
 @keyframes scrollText {
     0% {
@@ -846,7 +839,6 @@ footer {
         transform: translateX(-100%);
     }
 }
-
 .scrolling-text {
     animation: scrollText 10s linear infinite; 
 }
@@ -876,8 +868,32 @@ footer {
         display: block;
     }
 }
-
-
+.navbar .bell-container {
+    position: absolute;
+    right: 20px;
+    top: 55%;
+    transform: translateY(-50%);
+}
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.bell-swinging {
+    animation: swing 0.5s ease-in-out infinite;
+}
 </style>
 <body>
     <div class="landscape-warning" style="display: none;">
@@ -888,8 +904,10 @@ footer {
             <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
             <div class="logo"><b>LiveForOthers</b></div>
         </div>
-    </nav>
-    
+        <div class="bell-container">
+            <img id="bell" src="bell.png" alt="Bell" style="width: 40px; height: 50px; cursor: pointer;">
+        </div>
+    </nav>    
     <section id="home" class="hero">
         <div class="scrolling-text">
             <i>Merry Christmas and a Happy New Year!</i>
@@ -898,8 +916,7 @@ footer {
             <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
             <p class="animate-text" style="margin-bottom: 70px; font-size: medium;"><i>Live with Purpose, Give with Heart</i></p>
             <div class="hero-buttons">
-                <button class="cta-button glowing" onclick="scrollToSection('#help');" style="text-shadow: 0 0 10px #ffffff;
-">Need Support</button>
+                <button class="cta-button glowing" onclick="scrollToSection('#help');" style="text-shadow: 0 0 10px #ffffff;">Need Support</button>
                 <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> 
                 <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
                 <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
@@ -913,8 +930,7 @@ footer {
             <div class="snowflake-container">
                 <img src="sn1.png" alt="Snowflake" class="snow">
             </div>
-            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);
-">₹10,000</div>
+            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);">₹10,000</div>
                 <p class="initiative-text">
                     LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
                     <div class="feature">
@@ -938,8 +954,7 @@ footer {
                         <img src="santa2.png" alt="Gift" style="width: 80px; height: 110px;">
                         <h3>Transparent Process</h3>
                         <p>A simple and transparent process for selecting and providing support.</p>
-                    </div></div> </div></div>
-    </section>
+                    </div></div> </div></div> </section>
     <section id="process" class="process">
         <h2 class="section-title" style="color:#007a2b; ">How It Works</h2>
         <div class="snowflake-container">
@@ -1011,7 +1026,8 @@ footer {
             <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
             <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
         </div> </footer>
- <script>
+        <audio id="audio" src="song.mp3" preload="auto"></audio>
+      <script>
             function createSnowflakes() {
               const snowflakeContainer = document.querySelector('.hero');
               const snowflakeCount = 100; 
@@ -1028,7 +1044,6 @@ footer {
               }
             }
             window.onload = createSnowflakes
-
             function scrollToSection(targetId) {
     const element = document.querySelector(targetId);
     if (element) {
@@ -1136,8 +1151,23 @@ function detectDevTools() {
     };
     console.log(devTools);
 }
-setInterval(detectDevTools, 1000);
-
+const bell = document.getElementById("bell");
+const audio = document.getElementById("audio");
+let isRinging = false;
+bell.addEventListener("click", function() {
+    if (isRinging) {
+        bell.classList.remove("bell-swinging");
+        audio.pause();
+    } else {
+        bell.classList.add("bell-swinging");
+        audio.play();
+    }
+    isRinging = !isRinging;
+});
+audio.addEventListener("ended", function() {
+    bell.classList.remove("bell-swinging");
+    isRinging = false;
+});
 </script>
 </body>
 </html>
