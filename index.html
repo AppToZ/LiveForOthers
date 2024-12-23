@@ -13,13 +13,13 @@
 <style>
     @keyframes glowing {
         0% {
-            box-shadow: 0 0 10px #ff0404, 0 0 20px #ff0909;
+            box-shadow: 0 0 10px #ff3232, 0 0 20px #ff0909;
         }
         50% {
-            box-shadow: 0 0 20px #c60101, 0 0 10px #ff0202;
+            box-shadow: 0 0 20px #ff3232, 0 0 15px #ff0202;
         }
         100% {
-            box-shadow: 0 0 10px #bd0808, 0 0 20px #f21616;
+            box-shadow: 0 0 10px #bd0808, 0 0 20px #ff3232;
         }
     }
     .cta-button.glowing {
@@ -985,6 +985,14 @@ footer {
               }
             }
             window.onload = createSnowflakes
+
+            function scrollToSection(targetId) {
+    const element = document.querySelector(targetId);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 50,  
+            behavior: 'smooth' 
+        });}}
 let currentLanguage = 'english';
 const translations = {
     "All your struggles will disappear now.": "உங்களுடைய அனைத்து போராட்டங்களும் இப்போது மறைந்து போகும்",
