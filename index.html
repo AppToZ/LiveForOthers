@@ -13,13 +13,13 @@
 <style>
     @keyframes glowing {
         0% {
-            box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
+            box-shadow: 0 0 5px #ff0404, 0 0 10px #ff0909;
         }
         50% {
-            box-shadow: 0 0 20px #ffffff, 0 0 10px #ffffff;
+            box-shadow: 0 0 20px #c60101, 0 0 10px #ff0202;
         }
         100% {
-            box-shadow: 0 0 5px #fff, 0 0 10px #ffffff;
+            box-shadow: 0 0 5px #bd0808, 0 0 10px #f21616;
         }
     }
     .cta-button.glowing {
@@ -275,7 +275,7 @@
     border-radius: 15px;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0 0px 15px rgba(187, 244, 255, 0.436);
+    box-shadow: 0 0px 15px rgba(187, 255, 207, 0.436);
 }
 .initiative-text {
     font-size: 1.2rem;
@@ -327,14 +327,15 @@ canvas {
   z-index: -1;
 }
 :root {
-    --navy-blue: #007b94;
-    --sky-blue: #001f2a;
-    --sky-light: #d1f4fc;
+    --navy-blue: #007a2b;
+    --sky-blue: #003712;
+    --sky-light: #ff3232;
     --white: #ffffff;
-    --gray-100:  #d1f9fc;
+    --gray-100:  #d1fcd3;
     --gray-200: #e9ecef;
-    --gray-300: #dee2e6;
+    --gray-300: #e6e0de;
     --gray-800: #0c1d2c;
+    --sky-red : #660000;
 }
 html {
     scroll-behavior: smooth;
@@ -357,7 +358,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(233, 253, 255, 0.98);
+    background: rgba(241, 255, 243, 0.98);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -379,7 +380,7 @@ body {
 .hero {
     min-height: 100vh;
     background: 
-    linear-gradient(135deg,#005a6ca8 10%,  #001f2a  100%);
+    linear-gradient(135deg,#006620a8 10%,  #002a14  100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -440,8 +441,8 @@ body {
 }
 
 .cta-button:first-child {
-    background: var(--white);
-    color: var(--navy-blue);
+    background: var(--sky-light);
+    color: var(--white);
 }
 
 .cta-button.secondary {
@@ -472,7 +473,7 @@ body {
 
 .process {
     padding: 5rem 2rem;
-    background: rgba(233, 255, 252, 0.98);
+    background: rgba(231, 255, 233, 0.98);
 
     border-radius: 30px;
 
@@ -497,7 +498,7 @@ body {
 .step-number {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--navy-blue) 10%, var(--sky-blue) 140%);
+    background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -609,7 +610,7 @@ footer {
 .submit-btn {
     width: 100%;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    background: linear-gradient(135deg, var(--sky-light) 0%, var(--sky-red) 100%);
     color: var(--white);
     border: none;
     border-radius: 50px;
@@ -666,6 +667,7 @@ footer {
     overflow: hidden;
     margin-bottom: 20px;
     margin-top: -100px;
+
 }
 
 /* Wrapper that holds the images */
@@ -689,6 +691,7 @@ footer {
     height: auto;
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 /* Keyframes for the sliding animation */
@@ -703,7 +706,121 @@ footer {
         transform: translateX(-200%);
     }
 }
+/* Snowfall Effect */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
 
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Snowflakes */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  pointer-events: none;
+  animation: snowfall 10s linear infinite;
+  z-index: -1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+
+.snowflake-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 10px;  /* Adjust the space between the snowflake and the card */
+}
+
+.snow {
+    width: 190px;  /* Adjust the size of the snowflake image */
+    height: 190px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -93px;  /* Position the snowflake above the card */
+    left: 27%;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow1 {
+    width: 105px;  /* Adjust the size of the snowflake image */
+    height: 105px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -75px;  /* Position the snowflake above the card */
+    left: 110%;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow2 {
+    width: 135px;  /* Adjust the size of the snowflake image */
+    height: 125px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -92px;  /* Position the snowflake above the card */
+    left: 50%;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow3 {
+    width: 105px;  /* Adjust the size of the snowflake image */
+    height: 105px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -80px;  /* Position the snowflake above the card */
+    left: 10%;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow4 {
+    width: 90px;  /* Adjust the size of the snowflake image */
+    height: 90px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -137px;  /* Position the snowflake above the card */
+    left: 110%;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow5 {
+    width: 105px;  /* Adjust the size of the snowflake image */
+    height: 105px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -66px;  /* Position the snowflake above the card */
+    left: -15px;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
+.snow6 {
+    width: 235px;  /* Adjust the size of the snowflake image */
+    position: absolute;
+    top: -312px;  /* Position the snowflake above the card */
+    left: 170px;   /* Center the snowflake horizontally */
+    transform: translateX(-50%);  /* Adjust the position to center the snowflake */
+    z-index: 10;  /* Ensure the snowflake is above the card */
+}
 </style>
 <body>
      <canvas id="bg"></canvas>
@@ -727,28 +844,47 @@ footer {
         <h1 class="animate-text">
             <span id="typing-effect"></span>
           </h1></div>
+
+ 
     </section>
+    
     <section id="initiative" class="initiative"><div class="initiative-content">
+        <div class="snowflake-container">
+            <img src="santa.png" alt="Snowflake" class="snow6">
+        </div>
             <h2 class="section-title">My Monthly Initiative</h2>
-            <div class="initiative-card"><div class="amount-badge">₹10,000</div>
+            <div class="snowflake-container">
+                <img src="sn1.png" alt="Snowflake" class="snow">
+            </div>
+            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);
+">₹10,000</div>
                 <p class="initiative-text">
                     LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
                     <div class="feature">
-                        <i class="fas fa-gift"></i>
+                        <div class="snowflake-container">
+                            <img src="sn2.png" alt="Snowflake" class="snow1">
+                        </div>
+                        <img src="gift.png" alt="Gift" style="width: 120px; height: 70px;">
                         <h3>No Repayment Required</h3>
                         <p>This is a gift, not a loan. I believe in unconditional support.</p>
                     </div><div class="feature">
+                        <div class="snowflake-container">
+                            <img src="sn3.png" alt="Snowflake" class="snow2">
+                        </div>
                         <i class="fas fa-heart"></i>
                         <h3>Individual Impact</h3>
                         <p>Believing individual efforts can help more people than a pooled group contribution.</p>
                     </div><div class="feature">
+                        <div class="snowflake-container">
+                            <img src="sn5.png" alt="Snowflake" class="snow3">
+                        </div>
                         <i class="fas fa-hands-helping"></i>
                         <h3>Transparent Process</h3>
                         <p>A simple and transparent process for selecting and providing support.</p>
                     </div></div> </div></div>
     </section>
     <section id="process" class="process">
-        <h2 class="section-title" style="color:  #007c95; ">How It Works</h2>
+        <h2 class="section-title" style="color:#007a2b; ">How It Works</h2>
         <div class="process-steps"><div class="step">
                 <div class="step-number">1</div>
                 <i class="fas fa-file-alt"></i>
@@ -775,11 +911,14 @@ footer {
     <h2 class="section-title">Need Support</h2>
     <div class="animated-form" style="text-align: center;">
         <p>All your struggles will disappear now.</p><br>
+        <div class="snowflake-container">
+            <img src="ch.png" alt="Snowflake" class="snow4">
+        </div>
         <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
     </div>
 </section>
     <section id="contact" class="contact">
-        <h2 class="section-title" style="color: #007c95;">Connect Me</h2>
+        <h2 class="section-title" style="color:#007a2b;">Connect Me</h2>
         <div class="contact-content" style="position: relative;top: -40px;">
             <div class="social-links">
                 <a href="https://www.instagram.com/rajesh_k_rishi/" target="_blank" class="social-link">
@@ -795,6 +934,7 @@ footer {
         <div class="slider-wrapper">
             <div class="slider-item">
                 <img src="s1.jpg" alt="Image 1" class="slider-image">
+">
             </div>
             <div class="slider-item">
                 <img src="s2.jpg" alt="Image 2" class="slider-image">
@@ -813,6 +953,33 @@ footer {
             <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
             <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
         </div> </footer>
+        <script>
+            // Create snowflakes dynamically
+            function createSnowflakes() {
+              const snowflakeContainer = document.querySelector('.hero');
+              const snowflakeCount = 100; // Number of snowflakes to generate
+              for (let i = 0; i < snowflakeCount; i++) {
+                let snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Randomize snowflake properties
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Random falling speed
+                snowflake.style.animationDelay = Math.random() * 10 + 's'; // Random delay to start falling
+                
+                // Randomize snowflake size
+                let size = Math.random() * 5 + 5; // Snowflake size between 5px to 10px
+                snowflake.style.width = size + 'px';
+                snowflake.style.height = size + 'px';
+                
+                snowflakeContainer.appendChild(snowflake);
+              }
+            }
+          
+            // Initialize the snowfall
+            window.onload = createSnowflakes;
+          </script>
+          
 <script>
     let words = ["Philanthropy", "Rehabilitation","Education", "Shelter", "Wellbeing"]; 
 let currentWordIndex = 0;
