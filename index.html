@@ -673,7 +673,6 @@ footer {
     transform: translateY(100vh);
   }
 }
-
 .hero {
   position: relative;
   overflow: hidden;
@@ -690,23 +689,41 @@ footer {
   animation: snowfall 10s linear infinite;
   z-index: -1;
 }
-
 .snowflake {
   position: absolute;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  background-color: white;
+  top: -10px; 
+  width: 60px;
+  height: 60px;
+  background-image: url('snow.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
   opacity: 0.8;
-  border-radius: 50%;
   animation: fall 5s linear infinite;
 }
-
 @keyframes fall {
-  to {
-    transform: translateY(100vh);
+  100% {
+    transform: translateY(100vh); 
   }
 }
+.snowflake:nth-child(odd) {
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+
+.snowflake:nth-child(even) {
+  animation-duration: 7s;
+  animation-delay: -4s;
+}
+
+/* Randomize the position and size */
+.snowflake {
+  left: calc(100% * var(--random-x)); /* Random horizontal position */
+  animation-duration: calc(6s + var(--random-duration)); /* Random falling speed */
+  animation-delay: calc(var(--random-delay)); /* Random delay */
+}
+
+
+
 .snowflake-container {
     position: relative;
     text-align: center;
