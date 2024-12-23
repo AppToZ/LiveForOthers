@@ -85,61 +85,6 @@
     text-align: center;
 }
 
-.typing-container {
-    position: absolute;
-    top: 620px;  /* Centers the text vertically */
-    left: 50%;  /* Centers the text horizontally */
-    transform: translate(-50%, -50%);  /* Centers the text exactly in the middle */
-    text-align: center;
-    color: #fff;
-    width: 100%;  /* Ensures the text container doesn't overflow */
-    padding: 0 20px;  /* Adds some space from the edges */
-}
-
-#typing-effect {
-    font-weight: 800;
-    font-size: 4rem;  /* Adjust font size if necessary */
-    color: #fff;
-    border-right: 2px solid #fff;
-    padding-right: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;  /* Prevents wrapping */
-    width: fit-content;  /* Ensures the text width adjusts with content */
-}
-
-/* Animation for typing and erasing */
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes erasing {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-/* Media queries to handle different devices */
-@media (max-width: 768px) {
-    #typing-effect {
-        font-size: 1.5rem;  /* Adjust font size for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    #typing-effect {
-        font-size: 1.2rem;  /* Further adjust font size for very small screens */
-    }
-}
-
 .submit-btn:focus {
     outline: none;
     box-shadow: none;
@@ -682,7 +627,6 @@ footer {
     outline: none;
     box-shadow: none;
 }
-/* Slider container styles */
 .image-slider {
     position: relative;
     width: 100%;
@@ -692,13 +636,10 @@ footer {
 
 }
 
-/* Wrapper that holds the images */
 .slider-wrapper {
     display: flex;
-    animation: slide 15s linear infinite; /* Animation to scroll images */
+    animation: slide 15s linear infinite; 
 }
-
-/* Each image item style */
 .slider-item {
     flex-shrink: 0;
     width: 90%;
@@ -706,8 +647,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
-/* Image style */
 .slider-image {
     width:90%;
     height: auto;
@@ -715,8 +654,6 @@ footer {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     
 }
-
-/* Keyframes for the sliding animation */
 @keyframes slide {
     0% {
         transform: translateX(0);
@@ -728,7 +665,6 @@ footer {
         transform: translateX(-200%);
     }
 }
-/* Snowfall Effect */
 @keyframes snowfall {
   0% {
     transform: translateY(-100px);
@@ -742,8 +678,6 @@ footer {
   position: relative;
   overflow: hidden;
 }
-
-/* Snowflakes */
 .hero::before {
   content: '';
   position: absolute;
@@ -819,16 +753,6 @@ footer {
     z-index: 10;
 }
 
-.snow4 {
-    width: 90px;
-    height: 90px;
-    position: absolute;
-    top: -137px;
-    left: 110%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
 .snow5 {
     width: 105px;
     height: 105px;
@@ -866,15 +790,8 @@ footer {
                 <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
                 <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
             </div></div>
-        <div class="background-slider"></div> 
-        <div id="typing-container" class="typing-container">
-        <h1 class="animate-text">
-            <span id="typing-effect"></span>
-          </h1></div>
-
- 
-    </section>
-    
+        <div class="background-slider"></div>  
+    </section> 
     <section id="initiative" class="initiative"><div class="initiative-content">
         <div class="snowflake-container">
             <img src="santa.png" alt="Snowflake" class="snow6">
@@ -938,9 +855,6 @@ footer {
     <h2 class="section-title">Need Support</h2>
     <div class="animated-form" style="text-align: center;">
         <p>All your struggles will disappear now.</p><br>
-        <div class="snowflake-container">
-            <img src="ch.png" alt="Snowflake" class="snow4">
-        </div>
         <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
     </div>
 </section>
@@ -969,7 +883,6 @@ footer {
             <div class="slider-item">
                 <img src="s3.jpg" alt="Image 2" class="slider-image">
             </div>
-            <!-- Repeat first image again to create seamless effect -->
             <div class="slider-item">
                 <img src="s1.jpg" alt="Image 1" class="slider-image">
             </div>
@@ -980,71 +893,24 @@ footer {
             <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
             <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
         </div> </footer>
-        <script>
-            // Create snowflakes dynamically
+ <script>
             function createSnowflakes() {
               const snowflakeContainer = document.querySelector('.hero');
-              const snowflakeCount = 100; // Number of snowflakes to generate
+              const snowflakeCount = 100; 
               for (let i = 0; i < snowflakeCount; i++) {
                 let snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
-                
-                // Randomize snowflake properties
                 snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Random falling speed
-                snowflake.style.animationDelay = Math.random() * 10 + 's'; // Random delay to start falling
-                
-                // Randomize snowflake size
-                let size = Math.random() * 5 + 5; // Snowflake size between 5px to 10px
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+                snowflake.style.animationDelay = Math.random() * 10 + 's'; 
+                let size = Math.random() * 5 + 5; 
                 snowflake.style.width = size + 'px';
                 snowflake.style.height = size + 'px';
-                
                 snowflakeContainer.appendChild(snowflake);
               }
             }
-          
-            // Initialize the snowfall
-            window.onload = createSnowflakes;
-          </script>
-          
-<script>
-    let words = ["Philanthropy", "Rehabilitation","Education", "Shelter", "Wellbeing"]; 
-let currentWordIndex = 0;
-let typingSpeed = 180;
-let erasingSpeed = 40; 
-let newWordDelay = 1400;
-function typeWriter() {
-    let currentWord = words[currentWordIndex];
-    let span = document.getElementById('typing-effect');
-    let i = 0;
-    span.innerHTML = ''; 
-    let typingInterval = setInterval(function() {
-        span.innerHTML += currentWord.charAt(i);
-        i++;
-        if (i === currentWord.length) {
-            clearInterval(typingInterval); 
-            setTimeout(eraseWord, newWordDelay); 
-        }
-    }, typingSpeed);
-}function eraseWord() {
-    let span = document.getElementById('typing-effect');
-    let i = span.innerHTML.length;
-    let erasingInterval = setInterval(function() {
-        span.innerHTML = span.innerHTML.substring(0, i - 1);
-        i--;
-        if (i === 0) {
-            clearInterval(erasingInterval);
-            currentWordIndex = (currentWordIndex + 1) % words.length;
-            setTimeout(typeWriter, typingSpeed); 
-        }}, erasingSpeed);
-}typeWriter();
-function scrollToSection(targetId) {
-    const element = document.querySelector(targetId);
-    if (element) {
-        window.scrollTo({
-            top: element.offsetTop - 50,  
-            behavior: 'smooth' 
-        });}}let currentLanguage = 'english';
+            window.onload = createSnowflakes
+let currentLanguage = 'english';
 const translations = {
     "All your struggles will disappear now.": "உங்களுடைய அனைத்து போராட்டங்களும் இப்போது மறைந்து போகும்",
     "She Taught Me to Live with Purpose and Give with Heart": "அவள் எனக்கு நோக்கத்துடன் வாழவும், மனப்பூர்வமாக கொடுக்கவும் கற்றுத்தந்தாள்.",
