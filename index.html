@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LiveForOthers</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<style>
+
+    .cta-button.glowing {
+        animation: glowing 1.5s infinite alternate;
+        color: var(--navy-blue);
+        font-weight: 600;
+        text-decoration: none;
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-size: larger;
+        background-color: #ffffff;
+        border: none;
+    }
+    * {
+        user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.section-title {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0; 
+    font-size: 2rem; 
+    width: 100%; 
+    display: block; 
+}
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem; 
+        padding: 5px 0; 
+    }
+}
+.initiative-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+}
+.feature {
+    flex: 1;
+    max-width: 250px; 
+    text-align: center;
+    padding: 20px;
+}
+.help-form {
+    text-align: center;
+    padding: 40px 20px;
+}
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+    }
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center; 
+    }
+}
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo-container img {
+    height: 40px;
+    margin-right: 10px;
+}
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .hero-buttons a,
+    .hero-buttons button {
+        font-size: 14px; 
+    }
+}
+@media (max-width: 768px) {
+    .process-steps{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .form-grid{
+        grid-template-columns: 1fr;
+    }
+}
+@keyframes slideIn {
+    from { 
+        transform: translateY(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 5px 15px rgba(3, 169, 244, 0.4);
+    }
+    50% { 
+        transform: scale(1.05); 
+        box-shadow: 0 5px 25px rgba(3, 169, 244, 0.6);
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 5px 15px rgba(3, 169, 244, 0.4);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.animate-text {
+    animation: slideIn 1s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.9s ease-out 0.3s both;
+}
+
+.step {
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: both;
+}
+.step:nth-child(1) { animation-delay: 0.2s; }
+.step:nth-child(2) { animation-delay: 0.4s; }
+.step:nth-child(3) { animation-delay: 0.6s; }
+.step:nth-child(4) { animation-delay: 0.8s; }
+.initiative-card {
+    animation: fadeIn 1.2s ease-out;
+    background: linear-gradient(
+        135deg, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.2) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.feature {
+    animation: fadeIn 1s ease-out;
+    animation-fill-mode: both;
+}
+.feature:nth-child(1) { animation-delay: 0.3s; }
+.feature:nth-child(2) { animation-delay: 0.6s; }
+.feature:nth-child(3) { animation-delay: 0.9s; }
+.initiative {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
+}
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 3rem;
+    position: relative;
+    
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--sky-light);
+    margin: 1rem auto;
+}
+.initiative-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.initiative-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.amount-badge {
+    position: absolute;
+    top: -3px;
+    right: -8px;
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 0px 15px rgba(187, 255, 207, 0.436);
+}
+.initiative-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--white);
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+.initiative-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+@media (max-width: 768px) {
+    .initiative-features {
+        grid-template-columns: 1fr;
+    }
+}
+.feature {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+.feature i {
+    font-size: 2.5rem;
+    color: var(--sky-light);
+    margin-bottom: 1rem;
+}
+.feature h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+.feature p {
+    color: var(--white);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+:root {
+    --navy-blue: #008493;
+    --sky-blue: #002c2f;
+    --sky-light:#00465f;
+    --white: #ffffff;
+    --gray-100:  #d1fcfc;
+    --gray-200: #e9ecef;
+    --gray-300: #dee6e6;
+    --gray-800: #0c1d2c;
+    --sky-red : #003236;
+}
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-800);
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(221, 253, 252, 0.98);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 51, 49, 0.327);
+    transition: all 0.3s ease;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    backdrop-filter: blur(10px);
+
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    text-decoration: none;
+}
+.hero {
+    min-height: 100vh;
+    background: 
+    linear-gradient(135deg,#00aabd9c 10%,  #003236 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    overflow: hidden; 
+    padding: 0; 
+    margin: 0; 
+
+}
+.background-slider {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center 10%; 
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-content {
+    max-width: 800px;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: larger;
+}
+
+.cta-button:first-child {
+    background: var(--sky-light);
+    color: var(--white);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-size: larger;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.756);
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.process {
+    padding: 5rem 2rem;
+    background: rgba(221, 253, 252, 0.98);
+
+    border-radius: 30px;
+
+}
+.process-steps {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.step {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 4px 2px 10px rgba(0, 51, 49, 0.164);
+    transition: transform 0.3s ease;
+}
+.step:hover {
+    transform: translateY(-5px);
+}
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: 600;
+}
+.step i {
+    font-size: 2rem;
+    color: var(--sky-blue);
+    margin-bottom: 1rem;
+}
+.step h3 {
+    margin-bottom: 0.5rem;
+    color: var(--navy-blue);
+}
+.contact {
+    padding: 5rem 2rem;
+    background: var(--white);
+    
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem; 
+    background: var(--gray-100);
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--gray-800);
+    transition: all 0.3s ease;
+    cursor: none;
+}
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.social-link i {
+    font-size: 1.5rem;
+    color: var(--sky-blue);
+}
+.contact-message {
+    color: var(--gray-800);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    border-radius: 30px;
+
+}
+
+footer {
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px; 
+
+}
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.footer-tagline {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+.footer-copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+
+.help-form {
+    background: linear-gradient(135deg, var(--sky-blue) 0%, var(--navy-blue) 100%);
+    color: var(--navy-blue);
+    padding: 4rem 2rem;
+    border-radius: 30px;
+}
+
+.help-form .section-title {
+    color: var(--white);
+    margin-bottom: 2.5rem;
+}
+
+.animated-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--sky-light) 0%, var(--sky-red) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    box-shadow: none;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+    outline: none;
+    box-shadow: none;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    outline: none;
+    box-shadow: none;
+}
+.submit-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+.image-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: -100px;
+
+}
+
+.slider-wrapper {
+    display: flex;
+    animation: slide 20s linear infinite; 
+}
+.slider-item {
+    flex-shrink: 0;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider-image {
+    width:90%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+@keyframes slide {
+    0% {
+        transform: translateX(0); 
+    }
+    20% {
+        transform: translateX(-100%); 
+    }
+    40% {
+        transform: translateX(-200%);
+    }
+    60% {
+        transform: translateX(-300%); 
+    }
+    80% {
+        transform: translateX(-400%); 
+    }
+    100% {
+        transform: translateX(-500%); 
+    }
+}
+@keyframes snowfall {
+  0% {
+    transform: translateY(100vh); 
+  }
+  100% {
+    transform: translateY(-100px); 
+  }
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  pointer-events: none;
+  animation: snowfall 10s linear infinite;
+  z-index: -1;
+}
+
+.snowflake {
+  position: absolute;
+  top: 100vh; 
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  animation: fall 9s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(100vh); 
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+.snowflake:nth-child(odd) {
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+
+.snowflake:nth-child(even) {
+  animation-duration: 7s;
+  animation-delay: -4s;
+}
+.snowflake {
+  left: calc(100% * var(--random-x));
+  animation-duration: calc(6s + var(--random-duration)); 
+  animation-delay: calc(var(--random-delay)); 
+}
+.snowflake-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 10px;  
+}
+.snow {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -66px;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow1 {
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    top: -75px;
+    left: 110%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow2 {
+    width: 135px;
+    height: 125px;
+    position: absolute;
+    top: -92px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow3 {
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    top: -80px;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow4 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -149px;
+    left: 6%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow5 {
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    top: -66px;
+    left: -15px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.snow6 {
+    width: 235px;
+    position: absolute;
+    top: -312px;
+    left: 160px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff; 
+    text-align: center;
+    margin-top: 20px;
+    animation: scrollText 10s linear infinite;
+}
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.scrolling-text {
+    white-space: nowrap; 
+    overflow: hidden;   
+    box-sizing: border-box; 
+    width: 115%;          
+    font-size: 1.5rem;   
+    font-weight: bold;    
+    color: #e9ffef;       
+    text-align: center;  
+    position: absolute;   
+    top: 40px;             
+    left: 0;           
+    z-index: 10;        
+    padding: 10px 0;    
+    font-family: Arial, sans-serif; 
+    text-shadow: 0 0 5px #e0ffe8;
+}
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.scrolling-text {
+    animation: scrollText 10s linear infinite; 
+}
+.right-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-image-container img {
+    height: 40px;
+    margin-left: 10px;  
+}
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        display: none;  
+    }
+    .landscape-warning {
+        display: block; 
+        text-align: center;
+        font-size: 1.5rem;
+        color: red;
+        padding: 20px;
+    }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        display: block;
+    }
+}
+.navbar .bell-container {
+    position: absolute;
+    right: 20px;
+    top: 55%;
+    transform: translateY(-50%);
+}
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.bell-swinging {
+    animation: swing 0.5s ease-in-out infinite;
+}
+</style>
+<body>
+    <div class="landscape-warning" style="display: none;">
+        Please rotate your device to portrait mode to view this website.
+    </div>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+            <div class="logo"><b>LiveForOthers</b></div>
+        </div>
+
+    </nav>    
+    <section id="home" class="hero">
+        <div class="scrolling-text">
+            <i></i>
+        </div>
+        <div class="hero-content" style="margin-bottom: 50px;">
+            <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
+            <p class="animate-text" style="margin-bottom: 70px; font-size: medium;"><i>Live with Purpose, Give with Heart</i></p>
+            <div class="hero-buttons">
+                <button class="cta-button glowing" onclick="scrollToSection('#help');" style="text-shadow: 0 0 10px #ffffff;">Need Support</button>
+                <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> 
+                <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
+                <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
+            </div></div>
+        <div class="background-slider"></div></section> 
+    <section id="initiative" class="initiative"><div class="initiative-content">
+        <div class="snowflake-container">
+        </div>
+            <h2 class="section-title">My Monthly Initiative</h2>
+            <div class="snowflake-container">
+                <img src="bf.gif" alt="Snowflake" class="snow">
+            </div>
+            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);">₹10,000</div>
+                <p class="initiative-text">
+                    LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
+                    <div class="feature">
+            
+                        <img src="gift.png" alt="Gift" style="width: 95px; height: 95px;">
+                        <h3>No Repayment Required</h3>
+                        <p>This is a gift, not a loan. I believe in unconditional support.</p>
+                    </div><div class="feature">
+                
+                        <img src="gift.png" alt="Gift" style="width: 95px; height: 95px;">
+                        <h3>Individual Impact</h3>
+                        <p>Believing individual efforts can help more people than a pooled group contribution.</p>
+                    </div><div class="feature">
+
+                        <img src="gift.png" alt="Gift"  style="width: 95px; height: 95px;">
+                        <h3>Transparent Process</h3>
+                        <p>A simple and transparent process for selecting and providing support.</p>
+                    </div></div> </div></div> </section>
+    <section id="process" class="process">
+        <h2 class="section-title" style="color:#015a66; ">How It Works</h2>
+        <div class="process-steps"><div class="step">
+                <div class="step-number">1</div>
+                <i class="fas fa-file-alt"></i>
+                <h3>Say Your Problem</h3>
+                <p>Share your situation and the reason you need support in the form below.</p>
+            </div><div class="step">
+                <div class="step-number">2</div>
+                <i class="fas fa-file-upload"></i>
+                <h3>Provide Documentation</h3>
+                <p>Upload relevant documents or images to support your request</p>
+            </div><div class="step">
+                <div class="step-number">3</div>
+                <i class="fas fa-check-circle"></i>
+                <h3>Selection Process</h3>
+                <p>Each person's situation is reviewed with compassion</p>
+            </div><div class="step">
+                <div class="step-number">4</div>
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Receive Support</h3>
+                <p>Selected individuals receive immediate support</p>
+            </div></div>
+    </section>
+<section id="help" class="help-form"><br>
+    <div class="snowflake-container">
+        <img src="bf.gif" alt="Snowflake" class="snow4">
+    </div>
+    <h2 class="section-title">Need Support</h2>
+    <div class="animated-form" style="text-align: center;">
+        <p>All your struggles will disappear now.</p><br>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdNVher2KYw1U6jIXXIaRnvr6ax2FxpbwebcEkuoK2_Kiy5HQ/viewform?usp=sf_link', '_blank');" class="submit-btn glow">Fill the Google Form</button>
+    </div>
+</section>
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="color:#015a66;">Connect Me</h2>
+        <div class="contact-content" style="position: relative;top: -40px;">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rajesh_k_rishi/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram" style="color: #002a32;"></i></a>      
+                    <a href="mailto:k.rajesh90033@gmail.com?subject=My%20opinion%20about%20LiveForOthers&body=I%20want%20to%20say%20that%20..." class="social-link">
+                        <i class="fas fa-envelope"  style="color: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);"></i>
+                </a></div>
+            <div class="contact-message" style="color: var(--sky-light);">
+               <p><b>She Taught Me to Live with Purpose and Give with Heart</b></p> 
+            </div></div>
+    </section>
+    <section id="image-slider" class="image-slider">
+        <div class="slider-wrapper">
+            <div class="slider-item">
+                <img src="s1.jpg" alt="Image 1" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s2.jpg" alt="Image 2" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s3.jpg" alt="Image 2" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s4.jpg" alt="Image 1" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s5.jpg" alt="Image 2" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s6.jpg" alt="Image 2" class="slider-image">
+            </div>
+            <div class="slider-item">
+                <img src="s1.jpg" alt="Image 2" class="slider-image">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
+            <p class="footer-copyright">&copy; 2024 LiveForOthers. Spreading kindness and positivity.</p>
+        </div> </footer>
+        <audio id="audio" src="song.mp3" preload="auto"></audio>
+      <script>
+            function createSnowflakes() {
+              const snowflakeContainer = document.querySelector('.hero');
+              const snowflakeCount = 100; 
+              for (let i = 0; i < snowflakeCount; i++) {
+                let snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+                snowflake.style.animationDelay = Math.random() * 10 + 's'; 
+                let size = Math.random() * 5 + 5; 
+                const randomSize = Math.random() * (200 - 180) + 3;  
+    snowflake.style.width = `${randomSize}px`;
+    snowflake.style.height = `${randomSize}px`;
+                snowflakeContainer.appendChild(snowflake);
+              }
+            }
+            window.onload = createSnowflakes
+            function scrollToSection(targetId) {
+    const element = document.querySelector(targetId);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 50,  
+            behavior: 'smooth' 
+        });}}
+let currentLanguage = 'english';
+const translations = {
+    "All your struggles will disappear now.": "உங்களுடைய அனைத்து போராட்டங்களும் இப்போது மறைந்து போகும்",
+    "She Taught Me to Live with Purpose and Give with Heart": "அவள் எனக்கு நோக்கத்துடன் வாழவும், மனப்பூர்வமாக கொடுக்கவும் கற்றுத்தந்தாள்.",
+    "How it Works": "செயல்முறை" ,
+    "LiveForOthers": "LiveForOthers",
+    "Live with Purpose, Give with Heart": "Live with Purpose, Give with Heart",
+    "Need Support": "ஆதரவு வேண்டும்",
+    "About": "பற்றி",
+    "Home": "முகப்பு",
+    "My Initiative": "என் முயற்சி",
+    "My Monthly Initiative": "என் மாதாந்திர முயற்சி",
+    "Get Help": "உதவி பெறவும்",
+    "Contact": "தொடர்பு",
+    "₹10,000": "₹10,000",
+    "LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.": 
+        "LiveForOthers என் மாதாந்திர முயற்சியாகும், இதில் நான் உண்மையான கஷ்டங்களை சந்திக்கும் மக்களுக்கு ₹10,000 வழங்குகிறேன். இதோடு, பெற்றோர் இல்லாத குழந்தைகள் மற்றும் முதியவர்களுக்கு உணவும், உடையும் பரிசளிக்கின்றேன். இது கடன் அல்ல, ஒரு பரிசாகும்.நான், எதிர்பாராத மக்களின் வாழ்க்கைகளை கொஞ்சம் பிரகாசமாக மாற்றும் வகையில் பங்கு பெறுகிறேன்.",
+    "No Repayment Required": "பணமதிரை தேவையில்லை",
+    "This is a gift, not a loan. I believe in unconditional support.": "இது ஒரு பரிசு, கடன் அல்ல. நான் நிபந்தனைகள் இல்லாத ஆதரவை நம்புகிறேன்.",
+    "Individual Impact": "தனிப்பட்ட தாக்கம்",
+    "Believing individual efforts can help more people than a pooled group contribution.": "ஒரே குழுவின் நிதி தொகுப்பின் பதிலாக, தனி முயற்சிகள் அதிக மக்களுக்கு உதவ முடியும் என்று நம்புகிறேன்.",
+    "Transparent Process": "தெளிவான செயல்முறை",
+    "A simple and transparent process for selecting and providing support.": "எளிமையான மற்றும் தெளிவான தேர்வு மற்றும் ஆதரவு செயல்முறை.",
+    "How It Works": "எப்படி செயல்படும்?",
+    "Say Your Problem": "பிரச்சனையை சொல்லவும்",
+    "Share your situation and the reason you need support in the form below.": "உங்கள் நிலைமை மற்றும் உதவி தேவையின் காரணத்தை கீழ்காணும் கூகிள் படிவத்தில் பகிரவும்.",
+    "Provide Documentation": "ஆவணங்களை வழங்கவும்",
+    "Upload relevant documents or images to support your request": "உங்கள் கோரிக்கையை ஆதரிக்கும் பொருட்டு சம்பந்தப்பட்ட ஆவணங்களை பதிவேற்றவும்",
+    "Selection Process": "தேர்வு செயல்முறை",
+    "Each person's situation is reviewed with compassion": "ஒவ்வொரு நபரின் நிலையும் அக்கரையுடன் மதிப்பாய்வு செய்யப்படுகிறது.",
+    "Receive Support": "ஆதரவு பெறுங்கள்",
+    "Selected individuals receive immediate support": "தேர்ந்தெடுக்கப்பட்ட நபர்கள் உடனடி ஆதரவு பெறுவார்கள்.",
+    "Request Support": "ஆதரவை கோருங்கள்",
+    "Submit Request": "கோரிக்கை சமர்ப்பி",
+    "Please share your situation and how this support would help you...": "தயவு செய்து உங்கள் நிலையை பகிரவும் மற்றும் இந்த ஆதரவு உங்களுக்கு எவ்வாறு உதவும் என்பதை கூறவும்...",
+    "Supporting Documents": "ஆதரிக்கும் ஆவணங்கள்",
+    "Please attach relevant documents (ID proof, medical records, etc.)": "சம்பந்தப்பட்ட ஆவணங்களை இணைக்கவும் (ஐடி சான்று, மருத்துவ பதிவு போன்றவை)",
+    "Submit Request": "கோரிக்கை சமர்ப்பி",
+    "Follow us on Instagram": "Instagramல் நம்மை பின்தொடரவும்",
+    "Connect Me": "என்னை தொடர்பு கொள்ளவும்",
+    "Reach out to us on Instagram for any questions or support.": "எந்தவொரு கேள்விகளுக்கும் அல்லது ஆதரவுக்கு Instagramல் எங்களை தொடர்பு கொள்ளவும்.",
+    "Together, we can make a difference.": "கூட்டு செயல்படுவது மூலம், நாங்கள் வித்தியாசம் படுத்த முடியும்.",
+    "© 2024 LiveForOthers. Spreading kindness and positivity.": "© 2024 LiveForOthers. நற்கூறுகள் மற்றும் நேர்மறை உணர்வுகளை பரப்பு.",
+    "#LiveForOthers #Support #Kindness #HelpingHands": "#LiveForOthers #ஆதரவு #நற்கூறுகள் #உதவி கரம்"
+};function toggleLanguage() {
+    if (currentLanguage === 'english') {
+        document.querySelectorAll('*').forEach((element) => {
+            if (element.children.length === 0 && element.innerText.trim()) {
+                const translatedText = translations[element.innerText.trim()];
+                if (translatedText) {
+                    element.innerText = translatedText;
+                } }});document.querySelector('button[onclick="toggleLanguage()"]').innerText = "English";
+        currentLanguage = 'tamil';
+    } else {
+        location.reload(); }
+}let currentIndex = 0;
+const images = [
+    'bg9.png',  
+    'bg4.jpg',  
+    'bg8.jpg', 
+    'bg1.jpg',  
+    'bg3.png',  
+    'bg6.jpg'  
+];const slider = document.querySelector('.background-slider');
+function changeBackgroundImage() {
+    slider.style.opacity = 0; 
+    setTimeout(() => {
+        slider.style.backgroundImage = `url(${images[currentIndex]})`; 
+        slider.style.opacity = 1; 
+    }, 1300);
+    currentIndex = (currentIndex + 1) % images.length; 
+}slider.style.backgroundImage = `url(${images[currentIndex]})`;
+slider.style.opacity = 1; 
+setInterval(changeBackgroundImage, 3000);
+const sliderImages = document.querySelectorAll('.slider-image');
+function isMobile() {
+    return window.innerWidth <= 768; 
+}
+sliderImages.forEach(image => {
+    image.addEventListener('click', function() {
+     
+        if (!isMobile()) {
+            document.querySelector('.slider-wrapper').style.animationPlayState = 'paused';
+        }
+    });
+});
+
+document.onkeydown = function(e) {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+        e.preventDefault(); 
+    }
+};
+function detectDevTools() {
+    const devTools = /./;
+    devTools.toString = function () {
+    };
+    console.log(devTools);
+}
+const bell = document.getElementById("bell");
+const audio = document.getElementById("audio");
+let isRinging = false;
+bell.addEventListener("click", function() {
+    if (isRinging) {
+        bell.classList.remove("bell-swinging");
+        audio.pause();
+    } else {
+        bell.classList.add("bell-swinging");
+        audio.play();
+    }
+    isRinging = !isRinging;
+});
+audio.addEventListener("ended", function() {
+    bell.classList.remove("bell-swinging");
+    isRinging = false;
+});
+</script>
+</body>
+</html>
