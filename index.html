@@ -14,12 +14,12 @@
 
     .cta-button.glowing {
         animation: glowing 1.5s infinite alternate;
-        color: var(--navy-blue);
+        color: var(--white);
         font-weight: 600;
         text-decoration: none;
         font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
         font-size: larger;
-        background-color: #ffffff;
+        background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 80%);
         border: none;
     }
     * {
@@ -214,7 +214,8 @@
     margin: 0 auto;
 }
 .initiative-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg,#00aabd9c 10%,  #003236 100%);
+
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 3rem;
@@ -242,6 +243,7 @@
     max-width: 800px;
 }
 .initiative-features {
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -255,7 +257,7 @@
     text-align: center;
     padding: 2rem;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 80%);
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
 }
@@ -455,7 +457,7 @@ body {
 .step-number {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);
+    background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 100%);
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -497,7 +499,7 @@ body {
     align-items: center;
     width: 3rem;
     height: 3rem; 
-    background: var(--gray-100);
+    background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 150%);
     border-radius: 50%;
     text-decoration: none;
     color: var(--gray-800);
@@ -520,8 +522,8 @@ body {
 
 }
 
-footer {
-    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+footer {   
+     background:linear-gradient(135deg,#00aabd9c 10%,  #003236 100%);
     color: var(--white);
     padding: 2rem;
     text-align: center;
@@ -544,7 +546,8 @@ footer {
 
 
 .help-form {
-    background: linear-gradient(135deg, var(--sky-blue) 0%, var(--navy-blue) 100%);
+    background: 
+    linear-gradient(135deg,#00aabd9c 10%,  #003236 100%);
     color: var(--navy-blue);
     padding: 4rem 2rem;
     border-radius: 30px;
@@ -567,7 +570,7 @@ footer {
 .submit-btn {
     width: 100%;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--sky-light) 0%, var(--sky-red) 100%);
+    background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 50%);
     color: var(--white);
     border: none;
     border-radius: 50px;
@@ -770,7 +773,7 @@ footer {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: -149px;
+    top: -153px;
     left: 6%;
     transform: translateX(-50%);
     z-index: 10;
@@ -913,7 +916,8 @@ footer {
             <h1 class="animate-text" style="margin-bottom: 7px; font-size: 40px;">LiveForOthers</h1>
             <p class="animate-text" style="margin-bottom: 70px; font-size: medium;"><i>Live with Purpose, Give with Heart</i></p>
             <div class="hero-buttons">
-                <button class="cta-button glowing" onclick="scrollToSection('#help');" style="text-shadow: 0 0 10px #ffffff;">Need Support</button>
+                <button class="cta-button glowing" onclick="scrollToSection('#help');" style="text-shadow: 0 0 10px; background:linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 50%);
+;">Need Support</button>
                 <button class="cta-button secondary" onclick="toggleLanguage()">தமிழ்</button> 
                 <button class="cta-button secondary" onclick="scrollToSection('#initiative');">About</button>
                 <button class="cta-button secondary" onclick="scrollToSection('#process');">How It Works</button>
@@ -926,7 +930,7 @@ footer {
             <div class="snowflake-container">
                 <img src="bf.gif" alt="Snowflake" class="snow">
             </div>
-            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--sky-light) 10%, var(--sky-red) 100%);">₹10,000</div>
+            <div class="initiative-card"><div class="amount-badge" style="background: linear-gradient(135deg, var(--white) 0%, var(--navy-blue) 80%);">₹10,000</div>
                 <p class="initiative-text">
                     LiveForOthers is my monthly initiative where I contribute ₹10,000 to individuals facing genuine challenges. Along with this, I also provide food and clothes to orphaned children and elders in need. This is a gift, not a loan. It is my hope that i'll spread kindness and positivity, uplifting those in need and making someone's life a little brighter.</p>                <div class="initiative-features">
                     <div class="feature">
@@ -1020,7 +1024,7 @@ footer {
     <footer>
         <div class="footer-content">
             <p class="footer-tagline">#LiveForOthers #Support #Kindness #HelpingHands</p>
-            <p class="footer-copyright">Spreading Kindness and Positivity</p>
+            <p class="footer-copyright">Spreading kindness and positivity.</p>
         </div> </footer>
         <audio id="audio" src="song.mp3" preload="auto"></audio>
       <script>
